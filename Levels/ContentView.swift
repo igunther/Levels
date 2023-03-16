@@ -27,7 +27,7 @@ struct StockTakesView: View {
                 .font(.title2)
             
             LazyVStack {
-                ForEach($stockTakes, id: \.self) { $stockTake in
+                ForEach($stockTakes) { $stockTake in
                     NavigationLink {
                         StockTakeView(stockTake: $stockTake)
                     } label: {
@@ -50,7 +50,7 @@ struct StockTakeView: View {
             Text("\(stockTake.name) - Counted: \(stockTake.counted) ")
             
             LazyVStack {
-                ForEach($stockTake.stockCounts, id: \.self) { $stockCount in
+                ForEach($stockTake.stockCounts) { $stockCount in
                     NavigationLink {
                         StockCountsView(stockCount: $stockCount)
                     } label: {
